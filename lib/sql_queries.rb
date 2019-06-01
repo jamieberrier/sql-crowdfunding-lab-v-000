@@ -21,11 +21,11 @@ ORDER BY users.name"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-"SELECT projects.title, SUM(pledges.amount)-projects.funding_goal AS dif FROM pledges
+"SELECT projects.title, SUM(pledges.amount)-projects.funding_goal FROM pledges
 JOIN projects ON projects.id = pledges.project_id
-WHERE dif >= 0
+WHERE SUM(pledges.amount)-projects.funding_goal >= 0
 GROUP BY pledges.project_id
-ORDER BY dif DESC"
+ORDER BY SUM(pledges.amount)-projects.funding_goal DESC"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
