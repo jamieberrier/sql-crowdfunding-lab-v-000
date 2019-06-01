@@ -25,7 +25,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
 JOIN projects ON projects.id = pledges.project_id
 WHERE pledges.amount > projects.funding_goal OR pledges.amount = projects.funding_goal
 GROUP BY pledges.project_id
-ORDER BY diff DESC, projects.id"
+ORDER BY diff DESC"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
