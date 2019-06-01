@@ -24,7 +24,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
 "SELECT projects.title, SUM(pledges.amount)-projects.funding_goal AS diff FROM pledges
 JOIN projects ON projects.id = pledges.project_id
 GROUP BY pledges.project_id
-HAVING 
+HAVING
 ORDER BY SUM(pledges.amount)-projects.funding_goal DESC"
 end
 
